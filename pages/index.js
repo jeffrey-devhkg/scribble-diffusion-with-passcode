@@ -1,20 +1,33 @@
-// pages/index.js
+// Login Page
+const Login = () => {
+  // login form and logic
+}
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
+// Original Home Page code
+const Home = () => {
+  // ...existing Home page code 
+}
 
-export default function Home() {
+export default function IndexPage() {
 
-  const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    // Redirect to login if not authenticated
-    if (!isAuthenticated) {  
-      router.push('/login');
-    }
-  }, []);
+    checkAuth(); 
+  }, [])
 
-  // Rest of home page code
+  async function checkAuth() {
+    // call API to check auth 
+    const isAuth = await authAPI.check();
+    setIsAuthenticated(isAuth);
+  }
+
+  if(!isAuthenticated) {
+    return <Login onLogin={checkAuth} />
+  }
+
+  return <Home />
+
 }
 
 
