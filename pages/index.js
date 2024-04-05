@@ -49,7 +49,7 @@ const HOST = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : "http://localhost:3000";
 
-export default function Home() {
+export default function MainApp() {
   const [error, setError] = useState(null);
   const [submissionCount, setSubmissionCount] = useState(0);
   const [predictions, setPredictions] = useState({});
