@@ -1,3 +1,23 @@
+// pages/index.js
+
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+
+export default function Home() {
+
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect to login if not authenticated
+    if (!isAuthenticated) {  
+      router.push('/login');
+    }
+  }, []);
+
+  // Rest of home page code
+}
+
+
 import Canvas from "components/canvas";
 import PromptForm from "components/prompt-form";
 import Head from "next/head";
