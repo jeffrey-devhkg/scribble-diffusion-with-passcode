@@ -26,7 +26,7 @@ export default function IndexPage() {
     return <Login onLogin={checkAuth} />
   }
 
-  return <Home />
+  return <MainApp />
 
 }
 
